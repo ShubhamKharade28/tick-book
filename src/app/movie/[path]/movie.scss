@@ -1,0 +1,27 @@
+.grey-bg {
+    background: #f5f5f5;
+  }
+  
+  .pink-bg {
+    background: #eb324a;
+  }
+  
+  .darkpink-bg {
+    background: #b1172c;
+  }
+  
+  .pink-text {
+    color: #eb324a;
+  }
+
+.shadow {
+    box-shadow: 0px 0px 5px #44444477;
+}
+
+.buy-btn {
+    @apply pink-bg;
+
+    &:hover {
+        @apply darkpink-bg;
+    }
+}

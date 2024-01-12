@@ -118,7 +118,7 @@ const Movie = ({params}) => {
                 {/* Seating arrangement */}
                 <div className="flex flex-col w-full px-5 gap-14 mt-4">
                     <h1 className="text-2xl border-b-2 border-b-black w-fit pb-2 px-0.5">Choose seats</h1>
-                    <p className="w-80 py-1 text-center bg-white pink-text shadow rounded font-bold mx-auto">screen</p>
+                    <p className="w-80 py-0.5 text-center bg-white pink-text shadow rounded font-bold mx-auto">screen</p>
                     <div className="flex flex-col gap-5">   
                     {
                         allSeats.map((row,rowIndex) => {

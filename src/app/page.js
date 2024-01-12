@@ -15,11 +15,11 @@ const Home = () => {
       <Nav />
 
       <movies className="py-10 px-20 flex flex-col gap-7 w-screen">
-        <h1 className="text-2xl font-semibold px-10">Recommended movies</h1>
-        <div className="flex flex-wrap gap-x-20 gap-y-10 w-full">
+        <h1 className="text-2xl font-semibold px-12">Recommended movies</h1>
+        <div className="flex flex-wrap gap-x-20 gap-y-10 w-full justify-center">
           {
             movies.map((movie,index) => {
-              if(index > 10) return;
+              // if(index > 10) return;
               return (
                 <Link className="flex flex-col items-start gap-2 w-56" href={`/movie/${movie.path}`} key={movie.name}>
                   <div className="w-full rounded-lg overflow-hidden">

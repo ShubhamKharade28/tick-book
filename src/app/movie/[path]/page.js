@@ -42,6 +42,9 @@ const Movie = ({params}) => {
     const rows = 4, cols = 7;
     const allSeats = getSeats(rows,cols);
 
+    let seatOccupied = 1;
+    const [availableSeats,setAvailableSeats] = useState(rows*cols - seatOccupied);
+
     // to show buy ticket option
     const [isBuyVisible, setBuyVisible] = useState(false);
 
@@ -69,6 +72,7 @@ const Movie = ({params}) => {
         let r = seat.row, c = seat.col;
         setSeats((curr) => [...curr, new Seat(r,c)]);
         setCount(count+1);
+        setAvailableSeats(availableSeats-1);
     }
 
     function removeSeat(seatToRemove){
@@ -77,6 +81,7 @@ const Movie = ({params}) => {
             return curr.filter((seat) => seat.row != r || seat.col != c);
         });
         setCount(count-1);
+        setAvailableSeats(availableSeats+1);
     }
     
     function handleSeatClick(seat){
@@ -113,7 +118,8 @@ const Movie = ({params}) => {
                 {/* Seating arrangement */}
                 <div className="flex flex-col w-full px-5 gap-14 mt-4">
                     <h1 className="text-2xl border-b-2 border-b-black w-fit pb-2 px-0.5">Choose seats</h1>
-                    <div className="flex flex-col gap-5">
+                    <p className="w-80 py-1 text-center bg-white pink-text shadow rounded font-bold mx-auto">screen</p>
+                    <div className="flex flex-col gap-5">   
                     {
                         allSeats.map((row,rowIndex) => {
                             console.log(rowIndex);
@@ -155,6 +161,9 @@ const Movie = ({params}) => {
                 </div>
                 {/* No of tickets */}
                 <div className="flex flex-col mr-10 w-full h-80 justify-around items-center rounded-lg shadow px-10 mt-24 py-10">
+                    <div>
+                        Available seats {availableSeats}
+                    </div>
                     <div className="text-2xl pink-text font-bold leading-10">
                         <span>{count}</span> seats selected
                     </div>
